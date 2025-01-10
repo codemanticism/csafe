@@ -63,10 +63,30 @@ id identify(char* string){
 	}
 	return 0xFF;
 }
+int hexadecimal(char* code){
+	unsigned int number = 0;
+	for(;1;code++){
+		if((*code >= 'a') && (*code <= 'z')){
+			number = number * 16;
+			number += (*code) - 'a' + 10;
+		}else if((*code >= '0') && (*code <= '9')){
+			number = number * 16;
+			number += (*code) - '0';
+		}else{
+			return number;
+		}
+	}
+}
+
 int octal(char* code){
 	unsigned int number = 0;
-	for(; ( (*code) < 'a' ) || ( (*code) > 'a' );code++){
-		
+	for(;1;code++){
+		if((*code >= '0') && (*code <= '7')){
+			number = number * 8;
+			number += (*code) - '0';
+		}else{
+			return number;
+		}
 	}
 }
 int character(char* code){
@@ -94,6 +114,8 @@ int character(char* code){
 				break;
 			case '?':
 				break;
+			//octal
+			//hexadecimal
 			default:
 				break;
 		}
@@ -105,12 +127,14 @@ int string(char* code, map info){
 	//info.tree.add();
 	//''
 	for( ;c; ){
-		
+		//iterate thru character
 	}
 }
 int expression(char* code, map info){
 	unsigned int nestlevel = 1;
 	char* copy = code;
+	//binary operations
+	//functions
 	for(;nestlevel == 0;copy++){
 		if(){
 			
